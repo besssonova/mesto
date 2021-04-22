@@ -8,3 +8,17 @@
     overflow: hidden;
     
 }
+
+@media (max-width: 700px) {
+    .profile__name {
+        text-align: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .profile__name {
+        font-size: 27px;
+        line-height: 1.2;
+    }
+ 
+}
