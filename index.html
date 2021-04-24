@@ -34,7 +34,7 @@
            <img src="images/Karachayevsk.jpg" alt="Карачаевск" class="element__image">
            <div class="element__text-box">
              <h2 class="element__title">Карачаевск</h2>
-             <button class="element__heart"></button> 
+             <button type="button"class="element__heart"></button> 
           </div>
          </div>
          <div class="element">
@@ -81,14 +81,16 @@
       <p class="footer__copyright" lang="en">&copy; 2021 Mesto Russia</p>
     </footer>
 
-    <div class="popup popup_is-opened">
-      <form class="popup__content">
+    <div class="popup popup__is-closed">
+      <div class="popup__content">
         <button type="button" class="popup__close-button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" class="popup__text popup__text_type_name">
-        <input type="text" class="popup__text popup__text_type_profession">
-        <button type="submit" class="popup__submit-button">Сохранить</button>
-      </form>
+        <form class="form" name="form">
+          <input type="text" name="name" placeholder="Введите имя" class="form__text form__text_type_name">
+          <input type="text" name="profession" placeholder="Напишите о себе" class="form__text form__text_type_profession">
+          <button type="submit" class="form__submit-button">Сохранить</button>
+        </form>
+      </div>
     </div>
    
   </div>

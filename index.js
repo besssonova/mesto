@@ -7,16 +7,15 @@ let containerInfo = document.querySelector('.profile__info');
 let nameProfile = document.querySelector('.profile__name');
 let jobProfile = document.querySelector('.profile__profession');
 
-let formElement = document.querySelector('.popup__content');
+let formElement = document.querySelector('.form');
 
-let nameInput = document.querySelector('.popup__text_type_name');
-let jobInput = document.querySelector('.popup__text_type_profession');
+let nameInput = document.querySelector('.form__text_type_name');
+let jobInput = document.querySelector('.form__text_type_profession');
 
 
 
-function togglePopup(event) {
-    event.preventDefault();
-    popup.classList.toggle('popup_is-opened');
+function togglePopupOpen() {
+    popup.classList.toggle('popup__is-closed');
    
     nameInput.value = nameProfile.textContent;
     jobInput.value = jobProfile.textContent;
@@ -24,17 +23,17 @@ function togglePopup(event) {
     
 };
 
-openPopupButton.addEventListener('click', togglePopup);
+function togglePopupClose() {
+    popup.classList.toggle('popup__is-closed');
+    console.log(closed);
+}
 
-closePopupButton.addEventListener('click', togglePopup);
 
 function handleOverlayClick(event) {
     if (event.target === event.currentTarget) {
-        togglePopup(event);
+        togglePopupClose();
     }   
 };
-
-popup.addEventListener('click', handleOverlayClick);
 
 
 function formSubmitHandler (event) {
@@ -43,9 +42,13 @@ function formSubmitHandler (event) {
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent= jobInput.value;
     
-    togglePopup(event);
+    togglePopupClose();
     
 }
+openPopupButton.addEventListener('click', togglePopupOpen);
 
+closePopupButton.addEventListener('click', togglePopupClose);
+
+popup.addEventListener('click', handleOverlayClick);
 
 formElement.addEventListener('submit', formSubmitHandler); 

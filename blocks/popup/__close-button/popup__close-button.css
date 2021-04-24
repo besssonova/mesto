@@ -1,5 +1,5 @@
 .popup__close-button {
-    background: transparent url(../../../images/close\ cross.svg);
+    background: transparent url(../../../images/close-cross.svg);
     background-size: contain;
     background-position: center;
     position: absolute;
@@ -9,10 +9,11 @@
     width: 40px;
     height: 40px;
     padding: 0;
+    cursor: pointer;
 }
 
 .popup__close-button:hover {
-    background-image: url(../../../images/close\ cross_hover.svg);
+    background-image: url(../../../images/close-cross_hover.svg);
 }
 
 @media (max-width: 530px) {

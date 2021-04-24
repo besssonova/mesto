@@ -4,3 +4,9 @@
   flex-direction: column;
   align-self: center;
 }
+
+@media (max-width: 500px) {
+  .profile__info {
+    max-width: 250px;
+  }
+}
