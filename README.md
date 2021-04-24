@@ -18,7 +18,7 @@
 
 **GitHub Pages**
 
-* [Ссылка на проект в GitHub Pages]()  <!-- вставить ссылку -->
+* [Ссылка на проект в GitHub Pages](https://besssonova.github.io/mesto/index.html)  <!-- вставить ссылку -->
 
 ------
 **Автор:** Бессонова Юлия, 2021 
