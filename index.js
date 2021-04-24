@@ -15,7 +15,7 @@ let jobInput = document.querySelector('.form__text_type_profession');
 
 
 function togglePopupOpen() {
-    popup.classList.toggle('popup__is-closed');
+    popup.classList.toggle('popup_is-closed');
    
     nameInput.value = nameProfile.textContent;
     jobInput.value = jobProfile.textContent;
@@ -24,7 +24,7 @@ function togglePopupOpen() {
 };
 
 function togglePopupClose() {
-    popup.classList.toggle('popup__is-closed');
+    popup.classList.toggle('popup_is-closed');
     console.log(closed);
 }
 
