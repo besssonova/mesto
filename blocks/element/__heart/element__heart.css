@@ -15,7 +15,7 @@
 }
 
 .element__heart:active {
-    background: url(../../../images/heart_black.svg)
+    background: url(../../../images/heart_black.svg);
     
 
 }
