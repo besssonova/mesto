@@ -9,3 +9,16 @@
     line-height: 1.2;
     font-weight: normal;
 }
+
+.popup__submit-button:hover {
+    background-color: rgba(0, 0, 0, .8);
+}
+
+@media (max-width: 500px) {
+    .popup__submit-button {
+        width: 238px;
+        height: 46px;
+        font-size: 14px;
+    }
+}
+

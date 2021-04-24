@@ -9,3 +9,10 @@
     border-radius: 10px;
     position: relative;
 }
+
+@media (max-width: 500px) {
+    .popup__content {
+        max-width: 282px;
+        min-height: 322px;
+    }
+}

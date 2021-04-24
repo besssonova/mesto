@@ -8,8 +8,25 @@
     right: -40px;
     width: 40px;
     height: 40px;
+    padding: 0;
 }
 
 .popup__close-button:hover {
     background-image: url(../../../images/close\ cross_hover.svg);
+}
+
+@media (max-width: 530px) {
+    .popup__close-button {
+        top: -53.62px;
+        right: 0;
+        
+    }
+}
+
+@media (max-width: 500px) {
+    .popup__close-button {
+        width: 26px;
+        height: 26px;
+        top: -39.62px
+    }
 }
