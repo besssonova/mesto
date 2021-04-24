@@ -18,8 +18,8 @@ function togglePopup(event) {
     event.preventDefault();
     popup.classList.toggle('popup_is-opened');
    
-    nameInput.Value = nameProfile.textContent;
-    jobInput.Value = jobProfile.textContent;
+    nameInput.value = nameProfile.textContent;
+    jobInput.value = jobProfile.textContent;
    
     
 };
@@ -40,8 +40,8 @@ popup.addEventListener('click', handleOverlayClick);
 function formSubmitHandler (event) {
     event.preventDefault(); 
 
-    nameProfile.textContent = nameInput.Value;
-    jobProfile.textContent= jobInput.Value;
+    nameProfile.textContent = nameInput.value;
+    jobProfile.textContent= jobInput.value;
     
     togglePopup(event);
     
