@@ -1,5 +1,5 @@
-.element__heart {
-    background: url(../../../images/heart.svg);
+.element__heart_active {
+    background: url(../../../../images/heart_black.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -8,9 +8,9 @@
     border: none;
     width: 22px;
     height: 19px;
+
 }
 
-.element__heart:hover {
+.element__heart_active:hover {
     opacity: 0.5;
 }
-

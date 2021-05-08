@@ -1,0 +1,19 @@
+.popup__content-image {
+    position: relative;
+    max-width: 75vh;
+    max-height: 75vh;
+    
+}
+
+@media (max-width: 900px) {
+    .popup__content-image {
+        
+    }
+}
+
+@media (max-width: 500px) {
+    .popup__content-image {
+        max-width: 240px;
+        
+    }
+}

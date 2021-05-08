@@ -1,0 +1,15 @@
+.element__trash-can {
+    background: transparent url(../../../images/trash-can.svg);
+    width: 18px;
+    height: 19.3px;
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+}
+
+.element__trash-can:hover {
+    background: url(../../../images/trash-can-hover.svg);
+}

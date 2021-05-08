@@ -29,14 +29,20 @@
         <button type="button" class="profile__add-button"></button>
       </section>
 
-      <section class="elements">
-         <div class="element">
+      <section class="cards">
+        <ul class="elements">
+
+        </ul>
+
+
+         <!-- <div class="element">
            <img src="images/Karachayevsk.jpg" alt="Карачаевск" class="element__image">
            <div class="element__text-box">
              <h2 class="element__title">Карачаевск</h2>
              <button type="button" class="element__heart"></button> 
           </div>
          </div>
+         
          <div class="element">
            <img src="images/Elbrus.jpg" alt="Гора Эльбрус" class="element__image">
             <div class="element__text-box">
@@ -44,6 +50,7 @@
               <button class="element__heart"></button>
             </div>
          </div>
+        
          <div class="element">
            <img src="images/Dombay.jpg" alt="Домбай" class="element__image">
            <div class="element__text-box">
@@ -51,6 +58,7 @@
              <button class="element__heart"></button>
            </div>
          </div>
+        
          <div class="element">
            <img src="images/Elbrus.jpg" alt="Гора Эльбрус" class="element__image">
            <div class="element__text-box">
@@ -58,6 +66,7 @@
              <button class="element__heart"></button>
            </div>
          </div>
+        
          <div class="element">
            <img src="images/Dombay.jpg" alt="Домбай" class="element__image">
            <div class="element__text-box">
@@ -65,13 +74,15 @@
              <button class="element__heart"></button>
            </div>
          </div>
+        
          <div class="element">
            <img src="images/Karachayevsk.jpg" alt="Карачаевск" class="element__image">
            <div class="element__text-box">
              <h2 class="element__title">Карачаево-Черкессия</h2>
              <button class="element__heart"></button>
            </div>
-         </div>
+         </div> -->
+        
       </section>
 
 
@@ -81,7 +92,7 @@
       <p class="footer__copyright" lang="en">&copy; 2021 Mesto Russia</p>
     </footer>
 
-    <div class="popup popup_is-closed">
+    <div class="popup popup_is-closed popup_type_edit">
       <div class="popup__content">
         <button type="button" class="popup__close-button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
@@ -92,8 +103,42 @@
         </form>
       </div>
     </div>
+
+    <div class="popup popup_is-closed popup_type_new-card">
+      <div class="popup__content">
+        <button type="button" class="popup__close-button popup__close-button_type_new-card"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <form class="form form_type_new-card" name="form">
+          <input type="text" name="mesto" placeholder="Название" class="form__text form__text_type_mesto-name">
+          <input type="text" name="link" placeholder="Ссылка на картинку" class="form__text form__text_type_mesto-link">
+          <button type="submit" class="form__submit-button">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_is-closed popup_type_image">
+      <div class="popup__content-image">
+        <button type="button" class="popup__close-button popup__close-button_type_image"></button>
+        
+          <img src="" alt="" class="popup__image">
+          <p class="popup__caption"></p>
+        
+      </div>
+    </div>
    
   </div>
+
+<template id="card-template">
+  <li class="element">
+    <img src="" alt="" class="element__image">
+    <div class="element__text-box">
+      <h2 class="element__title"></h2>
+      <button type="button" class="element__heart"></button> 
+    </div>
+    <button type="button" class="element__trash-can"></button> 
+  </li>
+</template>
+
   <script src="index.js"></script>
 </body>
 </html>
