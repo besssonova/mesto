@@ -59,17 +59,17 @@ const initialCards = [
   function inputValueFormEdit () {
     nameInput.value = nameProfile.textContent;
     jobInput.value = jobProfile.textContent;
-};
+}
 
   function valueDataProfile() {
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent= jobInput.value;
-};
+}
 
   function inputValueFormMesto () {
     linkInput.value = '';
     mestoInput.value = '';
-};
+}
 
   function getCard (link, name) {
     const newCard = newCardTemplate.content.querySelector('.element').cloneNode(true);
@@ -95,7 +95,7 @@ const initialCards = [
     const openPopupImageButton = newCard.querySelector('.element__image');
 
     openPopupImageButton.addEventListener('click', function () {
-        popupImg.classList.remove('popup_is-closed');
+        openPopup (popupImg);
         imageOfPopupImg.src = link;
         imageOfPopupImg.alt = name;
         captionOfPopupImg.textContent = name;
@@ -103,7 +103,7 @@ const initialCards = [
 
     return newCard;
 
-  };
+  }
 
   initialCards.forEach((function(element) {
     const newCard = getCard(element.link, element.name);
@@ -113,45 +113,32 @@ const initialCards = [
 
 function openPopup (popup) {
     popup.classList.remove('popup_is-closed');
-};
+}
 
 function closePopup (popup) {
     popup.classList.add('popup_is-closed');
-};
+}
 
 function openPopupEdit () {
     openPopup(popupEdit);
     inputValueFormEdit ();
-};
-
-function openPopupMesto () {
-    openPopup(popupMesto);
-};
+}
 
 function openPopupImg () {
     openPopup(popupImg);
     inputValueFormMesto ();
-};
-
-function closePopupEdit () {
-    closePopup(popupEdit);
-};
+}
 
 function closePopupMesto () {
     closePopup(popupMesto);
     inputValueFormMesto();
-};
-
-function closePopupImg () {
-    closePopup(popupImg);
-};
+}
 
 function handleSubmitFormEdit (event) {
     event.preventDefault(); 
     valueDataProfile();
     closePopup (popupEdit);
-};
-
+}
 
  function handleSubmitFormNewCard (event) {
    event.preventDefault();
@@ -160,7 +147,7 @@ function handleSubmitFormEdit (event) {
    closePopup(popupMesto);
    inputValueFormMesto ();
 
- };
+ }
 
 // function handleOverlayClick(event) { 
 //     if (event.target === event.currentTarget) { 
@@ -172,15 +159,16 @@ function handleSubmitFormEdit (event) {
 
 openPopupEditButton.addEventListener('click', openPopupEdit);
 
-openPopupMestoButton.addEventListener('click', openPopupMesto);
+openPopupMestoButton.addEventListener('click', () => openPopup(popupMesto));
 
-closePopupEditButton.addEventListener('click', closePopupEdit);
+closePopupEditButton.addEventListener('click', () => closePopup(popupEdit));
 
 closePopupMestoButton.addEventListener('click', closePopupMesto);
 
-closePopupImgButton.addEventListener('click', closePopupImg);
+closePopupImgButton.addEventListener('click', () => closePopup(popupImg));
 
 formEditElement.addEventListener('submit', handleSubmitFormEdit); 
 
 formMestoElement.addEventListener('submit', handleSubmitFormNewCard); 
 
+// Спасибо за ревью! Замечания очень помогли с усвоением материала :)
