@@ -27,35 +27,6 @@ const linkInput = document.querySelector('.form__text_type_mesto-link');
 const cardContainer = document.querySelector('.elements');
 const newCardTemplate = document.querySelector('#card-template');
 
-
-
-const initialCards = [ 
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ]; 
-
   function inputValueFormEdit () {
     nameInput.value = nameProfile.textContent;
     jobInput.value = jobProfile.textContent;
@@ -149,13 +120,17 @@ function handleSubmitFormEdit (event) {
 
  }
 
-// function handleOverlayClick(event) { 
-//     if (event.target === event.currentTarget) { 
-//         togglePopupClose(); 
-//     }    
-// }; 
+function handleOverlayClick(event, popup) { 
+    if (event.target === event.currentTarget) { 
+        closePopup(popup); 
+    }    
+}; 
 
-// popup.addEventListener('click', handleOverlayClick);
+popupEdit.addEventListener('click', (event) => handleOverlayClick(event, popupEdit));
+
+popupMesto.addEventListener('click', (event) => handleOverlayClick(event, popupMesto));
+
+popupImg.addEventListener('click', (event) => handleOverlayClick(event, popupImg));
 
 openPopupEditButton.addEventListener('click', openPopupEdit);
 
@@ -171,4 +146,4 @@ formEditElement.addEventListener('submit', handleSubmitFormEdit);
 
 formMestoElement.addEventListener('submit', handleSubmitFormNewCard); 
 
-// Спасибо за ревью! Замечания очень помогли с усвоением материала :)
+//enableValidation();
