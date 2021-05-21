@@ -9,11 +9,13 @@
     line-height: 1.2;
     font-weight: normal;
     cursor: pointer;
+    border-radius: 2px;
 }
 
 .form__submit-button:hover {
     background-color: rgba(0, 0, 0, .8);
 }
+
 
 @media (max-width: 500px) {
     .form__submit-button {

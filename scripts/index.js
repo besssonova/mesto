@@ -1,6 +1,8 @@
 const openPopupEditButton = document.querySelector('.profile__edit-button');
 const openPopupMestoButton = document.querySelector('.profile__add-button');
 
+const popupList = Array.from(document.querySelectorAll('.popup'));
+
 const popupEdit = document.querySelector('.popup_type_edit');
 const popupMesto = document.querySelector('.popup_type_new-card');
 const popupImg = document.querySelector('.popup_type_image');
@@ -84,15 +86,28 @@ const newCardTemplate = document.querySelector('#card-template');
 
 function openPopup (popup) {
     popup.classList.remove('popup_is-closed');
+    document.addEventListener('keydown', (event) => handleEscClick(event, popup));
 }
 
 function closePopup (popup) {
     popup.classList.add('popup_is-closed');
+    document.removeEventListener('keydown', (event) => handleEscClick(event, popup));
+    
 }
 
 function openPopupEdit () {
     openPopup(popupEdit);
     inputValueFormEdit ();
+    popupEdit.querySelector('.form__submit-button').classList.remove('form__submit-button_disabled');
+    popupEdit.querySelector('.form__submit-button').disabled = false;
+  
+}
+
+function openPopupMesto () {
+  openPopup(popupMesto);
+  popupMesto.querySelector('.form__submit-button').classList.add('form__submit-button_disabled');
+  popupMesto.querySelector('.form__submit-button').disabled = true;
+
 }
 
 function openPopupImg () {
@@ -100,7 +115,7 @@ function openPopupImg () {
     inputValueFormMesto ();
 }
 
-function closePopupMesto () {
+function closePopupMesto (config) {
     closePopup(popupMesto);
     inputValueFormMesto();
 }
@@ -121,20 +136,40 @@ function handleSubmitFormEdit (event) {
  }
 
 function handleOverlayClick(event, popup) { 
+
+  const inputList = Array.from(popup.querySelectorAll('.form__text'));
+
     if (event.target === event.currentTarget) { 
         closePopup(popup); 
+
+        inputList.forEach((inputElement) => {
+          inputElement.value = '';
+        })
+
     }    
+
+    
 }; 
 
-popupEdit.addEventListener('click', (event) => handleOverlayClick(event, popupEdit));
 
-popupMesto.addEventListener('click', (event) => handleOverlayClick(event, popupMesto));
 
-popupImg.addEventListener('click', (event) => handleOverlayClick(event, popupImg));
+function handleEscClick(event, popup) {
+    if (event.key === 'Escape') {
+      closePopup(popup);
+    }
+
+}
+ 
+
+popupList.forEach((popupElement) => {
+   popupElement.addEventListener('click', (event) => handleOverlayClick(event, popupElement));
+   
+});
+
 
 openPopupEditButton.addEventListener('click', openPopupEdit);
 
-openPopupMestoButton.addEventListener('click', () => openPopup(popupMesto));
+openPopupMestoButton.addEventListener('click', openPopupMesto);
 
 closePopupEditButton.addEventListener('click', () => closePopup(popupEdit));
 
@@ -146,4 +181,14 @@ formEditElement.addEventListener('submit', handleSubmitFormEdit);
 
 formMestoElement.addEventListener('submit', handleSubmitFormNewCard); 
 
-//enableValidation();
+const config = {
+  formSelector: '.form', 
+  inputSelector: '.form__text',
+  submitButtonSelector: '.form__submit-button',
+  inactiveButtonClass: 'form__submit-button_disabled',
+  inputErrorClass: 'form__text_type_error',
+  errorClass: 'form__text-error_active'
+}
+
+enableValidation(config);
+
