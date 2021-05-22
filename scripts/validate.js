@@ -43,7 +43,7 @@ function hazInvalidInput(inputList) {
    return inputList.some(inputElement => !inputElement.validity.valid);
 }
 
-function toggleButtonState (buttonElement, inputList) {
+function toggleButtonState (buttonElement, inputList, config) {
    if (hazInvalidInput(inputList)) {
        hideSubmitButton(buttonElement, config);
        buttonElement.disabled = true;
@@ -69,12 +69,12 @@ function setEventListeners(formElement, config) {
       inputList.forEach((inputElement) => {
           inputElement.addEventListener('input', () => {
               checkInputValidity(formElement, inputElement, restConfig);
-              toggleButtonState(buttonElement, inputList);
+              toggleButtonState(buttonElement, inputList, config);
           })
           
       });
 
-      toggleButtonState(buttonElement, inputList);
+      toggleButtonState(buttonElement, inputList, config);
       
 }
 
