@@ -88,14 +88,12 @@ const newCardTemplate = document.querySelector('#card-template');
  }));
 
 function openPopup (popup) {
-    popup.classList.remove('popup_is-closed');
-    popup.classList.toggle('popup_is-opened');
+    popup.classList.add('popup_is-opened');
     document.addEventListener('keydown', closeByEscape);
 }
 
 function closePopup (popup) {
-    popup.classList.add('popup_is-closed');
-    popup.classList.toggle('popup_is-opened');
+    popup.classList.remove('popup_is-opened');
     document.removeEventListener('keydown', closeByEscape);
     
 }
