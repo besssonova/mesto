@@ -8,7 +8,7 @@
     }
 
     _getCardTemplate = () => {
-        const cardTemplate = document.querySelector('#card-template').content.cloneNode(true);
+        const cardTemplate = document.querySelector('#card-template').content.querySelector('.element').cloneNode(true);
         return cardTemplate;
 
     }
