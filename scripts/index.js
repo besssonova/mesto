@@ -34,9 +34,19 @@ const placeInput = document.querySelector('.form__text_type_mesto-name');
 const linkInput = document.querySelector('.form__text_type_mesto-link');
 
 const cardContainer = document.querySelector('.elements');
-const newCardTemplate = document.querySelector('#card-template');
 
 
+const config = {
+  formSelector: '.form', 
+  inputSelector: '.form__text',
+  submitButtonSelector: '.form__submit-button',
+  inactiveButtonClass: 'form__submit-button_disabled',
+  inputErrorClass: 'form__text_type_error',
+  errorClass: 'form__text-error_active'
+}
+
+const editFormValidation = new FormValidator(config, formEditElement);
+const newCardValidation = new FormValidator(config, formPlaceElement);
 
 
   function setInputValuesFormEdit () {
@@ -54,12 +64,7 @@ const newCardTemplate = document.querySelector('#card-template');
     placeInput.value = '';
 }
 
-function openCardPopup(name, link) {
-  document.querySelector('.popup__caption').textContent = name;
-  document.querySelector('.popup__image').alt = name;
-  document.querySelector('.popup__image').src = link;
-  openPopup(popupImg);
-}
+
 
   initialCards.forEach((function(element) {
     const newCard = new Card(element, openCardPopup).createCard();
@@ -82,7 +87,7 @@ function openPopupEdit () {
     openPopup(popupEdit);
     setInputValuesFormEdit ();
     popupEditSubmitButton.classList.remove('form__submit-button_disabled');
-    // popupEdit.querySelector('.form__submit-button').disabled = false;
+  
   
 }
 
@@ -96,6 +101,13 @@ function openPopupPlace() {
 function openPopupImg () {
     openPopup(popupImg);
     
+}
+
+function openCardPopup(name, link) {
+  captionOfPopupImg.textContent = name;
+  imageOfPopupImg.alt = name;
+  imageOfPopupImg.src = link;
+  openPopupImg();
 }
 
 function closePopupPlace() {
@@ -117,7 +129,7 @@ function handleSubmitFormEdit (event) {
     link: linkInput.value
    }
 
-   const newCard = new Card(data, openCardPopup).getCard();
+   const newCard = new Card(data, openCardPopup).createCard();
    cardContainer.prepend(newCard);
    closePopupPlace();
 
@@ -170,18 +182,11 @@ formEditElement.addEventListener('submit', handleSubmitFormEdit);
 
 formPlaceElement.addEventListener('submit', handleSubmitFormNewCard); 
 
-const config = {
-  formSelector: '.form', 
-  inputSelector: '.form__text',
-  submitButtonSelector: '.form__submit-button',
-  inactiveButtonClass: 'form__submit-button_disabled',
-  inputErrorClass: 'form__text_type_error',
-  errorClass: 'form__text-error_active'
-}
 
-const editFormValidation = new FormValidator(config, formEditElement);
+
+
 editFormValidation.enableValidation();
 editFormValidation.toggleButtonState();
-const newCardValidation = new FormValidator(config, formPlaceElement);
+
 newCardValidation.enableValidation();
 newCardValidation.toggleButtonState();
