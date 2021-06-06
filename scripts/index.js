@@ -34,9 +34,11 @@ const placeInput = document.querySelector('.form__text_type_mesto-name');
 const linkInput = document.querySelector('.form__text_type_mesto-link');
 
 const cardContainer = document.querySelector('.elements');
+const cardTemplate =  document.querySelector('#card-template');
 
 
 const config = {
+  
   formSelector: '.form', 
   inputSelector: '.form__text',
   submitButtonSelector: '.form__submit-button',
@@ -67,7 +69,7 @@ const newCardValidation = new FormValidator(config, formPlaceElement);
 
 
   initialCards.forEach((function(element) {
-    const newCard = new Card(element, openCardPopup).createCard();
+    const newCard = new Card(element, cardTemplate, openCardPopup).createCard();
     cardContainer.append(newCard);
 
  }));
@@ -93,8 +95,6 @@ function openPopupEdit () {
 
 function openPopupPlace() {
   openPopup(popupPlace);
-  popupPlaceSubmitButton.classList.add('form__submit-button_disabled');
-  popupPlaceSubmitButton.disabled = true;
 
 }
 
@@ -129,7 +129,7 @@ function handleSubmitFormEdit (event) {
     link: linkInput.value
    }
 
-   const newCard = new Card(data, openCardPopup).createCard();
+   const newCard = new Card(data, cardTemplate, openCardPopup).createCard();
    cardContainer.prepend(newCard);
    closePopupPlace();
 
