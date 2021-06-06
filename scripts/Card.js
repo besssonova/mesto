@@ -9,7 +9,7 @@
     }
 
     _getCardTemplate = () => {
-        const cardTemplate = this._cardSelector.content.querySelector('.element').cloneNode(true);
+        const cardTemplate = document.querySelector(this._cardSelector).content.querySelector('.element').cloneNode(true);
         return cardTemplate;
 
     }
@@ -34,7 +34,7 @@
         this._card = this._getCardTemplate();
         this._image = this._card.querySelector('.element__image');
         this._imageTitle = this._card.querySelector('.element__title');
-        
+
         this._image.src = this._link;
         this._image.alt = this._name;
         this._imageTitle.textContent = this._name;

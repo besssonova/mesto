@@ -34,7 +34,7 @@ const placeInput = document.querySelector('.form__text_type_mesto-name');
 const linkInput = document.querySelector('.form__text_type_mesto-link');
 
 const cardContainer = document.querySelector('.elements');
-const cardTemplate =  document.querySelector('#card-template');
+const cardTemplate = '#card-template';
 
 
 const config = {
@@ -95,6 +95,7 @@ function openPopupEdit () {
 
 function openPopupPlace() {
   openPopup(popupPlace);
+  newCardValidation.toggleButtonState();
 
 }
 
