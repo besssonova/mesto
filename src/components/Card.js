@@ -26,7 +26,7 @@
 
     _addEventListeners = () => {
         this._card.querySelector('.element__heart').addEventListener('click', (evt) => {this._like(evt)} );
-        this._card.querySelector('.element__image').addEventListener('click', () => {this._handleCardClick(this._card)});
+        this._card.querySelector('.element__image').addEventListener('click', () => {this._handleCardClick(this._link, this._name)});
         this._card.querySelector('.element__trash-can').addEventListener('click', () => {this._deleteCard()});
     }
 

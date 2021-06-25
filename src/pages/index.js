@@ -6,44 +6,27 @@ import { PopupWithImage } from '../components/PopupWithImage.js';
 import { Section } from '../components/Section.js';
 import { UserInfo } from '../components/UserInfo.js';
 
-import '../index.css';
+import '../pages/index.css';
 
-const config = {
-  
-  formSelector: '.form', 
-  inputSelector: '.form__text',
-  submitButtonSelector: '.form__submit-button',
-  inactiveButtonClass: 'form__submit-button_disabled',
-  inputErrorClass: 'form__text_type_error',
-  errorClass: 'form__text-error_active'
-}
-
+import {
+  config,
+  openPopupEditButton,
+  openPopupPlaceButton,
+  formEditElement,
+  formPlaceElement,
+  nameInput,
+  jobInput,
+  cardTemplate
+} from '../utils/constants.js';
 
 const popupEdit = new PopupWithForm('.popup_type_edit', handleSubmitFormEdit); //change submitForm
 const popupPlace = new PopupWithForm('.popup_type_new-card', handleSubmitFormNewCard);//change submitForm
 const popupImg = new PopupWithImage('.popup_type_image');
 
-const openPopupEditButton = document.querySelector('.profile__edit-button');
-const openPopupPlaceButton = document.querySelector('.profile__add-button');
-
-const formEditElement = document.querySelector('.form_type_edit');
-const formPlaceElement = document.querySelector('.form_type_new-card'); 
-
-
-
 const userInfo = new UserInfo({nameProfile: '.profile__name', jobProfile:'.profile__profession'});
-
-const nameInput = formEditElement.elements.name;
-const jobInput = formEditElement.elements.profession;
-
-
-
-const cardTemplate = '#card-template';
 
 const editFormValidation = new FormValidator(config, formEditElement);
 const newCardValidation = new FormValidator(config, formPlaceElement);
-
-
 
 const cardSection = new Section({
   items: initialCards,
@@ -61,13 +44,13 @@ function renderCard(item) {
   return cardElement;
 }
 
-function openCardPopup(item) {
-  popupImg.open(item);
+function openCardPopup(link, name) {
+  popupImg.open(link, name);
 }
 
-function handleSubmitFormEdit (event, data) {
+function handleSubmitFormEdit (event, {name, job}) {
     event.preventDefault(); 
-    userInfo.setUserInfo(data);
+    userInfo.setUserInfo({name, job});
     popupEdit.close();
 }
 
@@ -91,7 +74,6 @@ function handleSubmitFormEdit (event, data) {
 
  openPopupPlaceButton.addEventListener('click', () => {
    popupPlace.open();
-   formPlaceElement.reset();
    newCardValidation.toggleButtonState();
  });
 
@@ -103,10 +85,8 @@ popupPlace.setEventListeners();
 popupImg.setEventListeners();
 
 editFormValidation.enableValidation();
-editFormValidation.toggleButtonState();
 
 newCardValidation.enableValidation();
-newCardValidation.toggleButtonState();
 
 
 
