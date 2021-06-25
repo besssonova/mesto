@@ -13,6 +13,8 @@
 * Формы
 * Обработка событий клавиатуры
 * Валидация форм через JS 
+* Основы ООП
+* сборка проекта Webpack
 
 
 **Figma**
@@ -21,7 +23,7 @@
 
 **GitHub Pages**
 
-* [Ссылка на проект в GitHub Pages](https://besssonova.github.io/mesto/index.html)  
+* [Ссылка на проект в GitHub Pages](https://besssonova.github.io/mesto/src/index.html)  
 
 ------
 **Автор:** Бессонова Юлия, 2021 
